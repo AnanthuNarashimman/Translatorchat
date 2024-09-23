@@ -25,7 +25,7 @@ send.addEventListener('click', async function() {
 
         const baseUrl = window.location.hostname === 'localhost'
             ? 'http://localhost:5000'
-            : 'https://your-vercel-domain.com';
+            : 'https://translatorchat.vercel.app';
         
         mess.innerText = `You: ${msg}`;
         chatarea.append(mess);
