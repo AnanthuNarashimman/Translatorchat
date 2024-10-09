@@ -1,12 +1,12 @@
 let send = document.querySelector('.sendbtn');
 let chatarea = document.querySelector('.msgarea');
 
-// Function to handle sending message
+
 async function sendMessage() {
     let msgbox = document.querySelector('.msgbox');
     let msg = msgbox.value;
     if (msg) {
-        // Create the user's message
+        
         let mess = document.createElement('p');
         mess.classList.add('msg');
         let sourcelang = document.querySelector('.srclang').value;
@@ -19,14 +19,14 @@ async function sendMessage() {
         mess.innerText = `You: ${msg}`;
         chatarea.append(mess);
 
-        // Clear input box
-        msgbox.value = '';
+        
+        msgbox.value = '';  
 
-        // Scroll to bottom after user's message
+        
         scrollToBottom();
 
         try {
-            // Make the fetch request for translation
+            
             let response = await fetch(`${baseUrl}/translate`, {
                 method: 'POST',
                 headers: {
@@ -43,7 +43,7 @@ async function sendMessage() {
                 let data = await response.json();
                 let translatedMessage = data.translated_text;
                 
-                // Create the translated message
+                
                 let translatedMess = document.createElement('p');
                 translatedMess.classList.add('translated-msg');
                 
@@ -51,7 +51,7 @@ async function sendMessage() {
                 
                 chatarea.append(translatedMess);
                 
-                // Scroll to bottom after the translated message
+                
                 scrollToBottom();
             } else {
                 console.error('Translation request failed');
